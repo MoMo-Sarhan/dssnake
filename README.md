@@ -14,7 +14,7 @@ git clone https://github.com/mohamedsarhan65/dssnake.git
 
 ## Compilation
 1-cd dssnake  
-2-gcc dssnake.cpp -o dssnake
+2-g++ -g dssnake.cpp -lGLU -lglut  -lGL  -lX11  -o dssnake  
 
 ## Execution
 ./dssnake

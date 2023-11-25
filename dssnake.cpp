@@ -13,7 +13,6 @@
 
 #include <cmath>
 #include <iostream>
-#include <vector>
 using namespace std;
 
 #define PI 3.17
