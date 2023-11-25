@@ -2,7 +2,7 @@
 this is a dssnake games create by MOMOSARHAN
 
 
-##content
+## Content
 -[Installation](#installation)
 -[Compilation](#compilation)
 -[Execution](#execution)
@@ -13,7 +13,7 @@ git clone https://github.com/mohamedsarhan65/dssnake.git
 
 
 ## Compilation
-1-cd dssnake
+1-cd dssnake  
 2-gcc dssnake.cpp -o dssnake
 
 ## Execution
