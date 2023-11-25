@@ -13,8 +13,8 @@ git clone https://github.com/mohamedsarhan65/dssnake.git
 
 
 ## Compilation
-cd dssnake
-gcc dssnake.cpp -o dssnake
+1-cd dssnake
+2-gcc dssnake.cpp -o dssnake
 
 ## Execution
 ./dssnake
