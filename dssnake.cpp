@@ -211,7 +211,7 @@ void draw() {
 
     // draw lifes
     glBegin(GL_POINTS);
-    glColor3f(1, 0 ,1);
+    glColor3f(1, 0, 1);
     for (int i = 2; i >= life_count; i--) {
         glVertex2f(life[i].x, life[i].y);
     }
