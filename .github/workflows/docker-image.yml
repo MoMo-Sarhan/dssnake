@@ -14,14 +14,18 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
+
     - name: Build the Docker image
       run: docker build . -f Dockerfile --tag my-image-name:$(date +%d)
+
     - name: retag the image
-      run: docker tag my-image-name:$(date +%d) ghrc.io/$GITHUB_ACTOR/my-image-name:$(date +%d)
+      run: docker tag my-image-name:$(date +%d) ghrc.io/$($GITHUB_ACTOR|tr '[:upper:]' '[:lower:]')/my-image-name:$(date +%d)
+
     - name: Docker login
       run: docker login ghcr.io -u $GITHUB_ACTOR -p $GITHUB_TOKEN
       env:
         GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+
     - name: publish to GPR
       run: docker push ghrc.io/$GITHUB_ACTOR/my-image-name:$(date +%d)
 
