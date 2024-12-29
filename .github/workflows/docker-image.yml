@@ -22,14 +22,16 @@ jobs:
       run: docker tag my-image-name:v1 ghcr.io/$(echo $GITHUB_ACTOR|tr '[:upper:]' '[:lower:]')/dssnake:v1
 
     - name: echo token
-      run: echo ${{secrets.GITHUB_TOKEN}} "not sure"
+      run: echo ${{secrets.GITHUB_PAT}} "not sure"
 
     - name: Docker login
-      run: echo ${{secrets.GITHUB_TOKEN}} | docker login ghcr.io -u $GITHUB_ACTOR --password-stdin
+      run: echo ${{secrets.GITHUB_PAT}} | docker login ghcr.io -u $GITHUB_ACTOR --password-stdin
 
 
     - name: publish to GPR
-      run: docker push ghcr.io/$(echo $GITHUB_ACTOR | tr '[:upper:]' '[:lower:]')/dssnake:v1
+      run: docker --debug push ghcr.io/$(echo $GITHUB_ACTOR | tr '[:upper:]' '[:lower:]')/dssnake:v1
 
+    - name: clean the cache
+      run: docker system prune -a --volumes
 
   
