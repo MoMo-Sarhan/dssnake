@@ -19,7 +19,7 @@ jobs:
       run: docker  build --no-cache . -f Dockerfile --tag my-image-name:v1
 
     - name: retag the image
-      run: docker tag my-image-name:v1 ghrc.io/$(echo $GITHUB_ACTOR|tr '[:upper:]' '[:lower:]')/newhelloworldimage:v1
+      run: docker tag my-image-name:v1 ghcr.io/$(echo $GITHUB_ACTOR|tr '[:upper:]' '[:lower:]')/newhelloworldimage:v1
 
     - name: Docker login
 
@@ -30,6 +30,6 @@ jobs:
     - name: clean the cache
       run: docker system prune -a --volumes
     - name: publish to GPR
-      run: docker push ghrc.io/$(echo $GITHUB_ACTOR | tr '[:upper:]' '[:lower:]')/newhelloworldimage:v1
+      run: docker push ghcr.io/$(echo $GITHUB_ACTOR | tr '[:upper:]' '[:lower:]')/newhelloworldimage:v1
 
   
