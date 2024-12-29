@@ -19,7 +19,7 @@ jobs:
       run: docker  build --no-cache . -f Dockerfile --tag my-image-name:v1
 
     - name: retag the image
-      run: docker tag my-image-name:$(date +%d) ghrc.io/$(echo $GITHUB_ACTOR|tr '[:upper:]' '[:lower:]')/newhelloworldimage:v1
+      run: docker tag my-image-name:v1 ghrc.io/$(echo $GITHUB_ACTOR|tr '[:upper:]' '[:lower:]')/newhelloworldimage:v1
 
     - name: Docker login
 
