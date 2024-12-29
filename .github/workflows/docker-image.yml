@@ -22,7 +22,8 @@ jobs:
       run: docker tag my-image-name:$(date +%d) ghrc.io/$(echo $GITHUB_ACTOR|tr '[:upper:]' '[:lower:]')/dssnake:$(date +%d)
 
     - name: Docker login
-      run: docker login ghcr.io -u $GITHUB_ACTOR -p $GITHUB_TOKEN
+
+      run: echo $GITHUB_TOKEN | docker login ghcr.io -u $GITHUB_ACTOR --password-stdin
       env:
         GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
 
