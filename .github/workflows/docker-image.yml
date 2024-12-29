@@ -19,7 +19,7 @@ jobs:
       run: docker  build --no-cache . -f Dockerfile --tag my-image-name:$(date +%d)
 
     - name: retag the image
-      run: docker tag my-image-name:$(date +%d) ghrc.io/$(echo $GITHUB_ACTOR|tr '[:upper:]' '[:lower:]')/newHelloWorldImage:$(date +%d)
+      run: docker tag my-image-name:$(date +%d) ghrc.io/$(echo $GITHUB_ACTOR|tr '[:upper:]' '[:lower:]')/newhelloworldimage:$(date +%d)
 
     - name: Docker login
 
@@ -28,6 +28,6 @@ jobs:
         GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
 
     - name: publish to GPR
-      run: docker push ghrc.io/$(echo $GITHUB_ACTOR | tr '[:upper:]' '[:lower:]')/dssnake:$(date +%d)
+      run: docker push ghrc.io/$(echo $GITHUB_ACTOR | tr '[:upper:]' '[:lower:]')/newhelloworldimage:$(date +%d)
 
   
