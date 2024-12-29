@@ -15,7 +15,7 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag my-image-name:$(date +%d)
+      run: docker build . -f ../../Dockerfile --tag my-image-name:$(date +%d)
     - name: retag the image
       run: docker tag my-image-name:$(date +%d) ghrc.io/$GITHUB_ACTOR/my-image-name:$(date +%d)
     - name: Docker login
