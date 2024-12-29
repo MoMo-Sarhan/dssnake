@@ -27,6 +27,8 @@ jobs:
       env:
         GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
 
+    - name: clean the cache
+      run: docker system prune -a --volumes
     - name: publish to GPR
       run: docker push ghrc.io/$(echo $GITHUB_ACTOR | tr '[:upper:]' '[:lower:]')/newhelloworldimage:v1
 
